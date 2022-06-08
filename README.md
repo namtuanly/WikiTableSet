@@ -1,1 +1,1 @@
-# WikiTable_Genetation
+# WikiTableGenetation
