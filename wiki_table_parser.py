@@ -124,13 +124,16 @@ def transform_html_id_text(html_input):
 
     # #################get thead and tbody#################
     thead = table_.find_all('thead')
-    if len(thead) != 1:
+    if len(thead) > 1:
         return None, None, None, idx_count
     tbody = table_.find_all('tbody')
-    if len(tbody) != 1:
+    if len(tbody) > 1:
         return None, None, None, idx_count
 
     thead_tbody = thead + tbody
+    if len(thead_tbody) == 0:
+        return None, None, None, idx_count
+
     for tag_ in thead_tbody:
         if tag_.name == 'thead':
             struc_tokens.append('<thead>')
@@ -206,9 +209,9 @@ class WikiTableParser(object):
         self.save_path = '../wiki_jp_tables_debug/'
 
 
-    def get_table_ids(self):
+    def get_number_tables(self):
         """
-        Get table ids from an JsonLine file.
+        count number of table in an JsonLine file.
         return:
         """
 
@@ -217,7 +220,6 @@ class WikiTableParser(object):
         else:
             jsonFile = open(self.jsonl_path, "r")
 
-        table_ids = []
         count = 0
         idx = self.start_id
         while True:
@@ -227,30 +229,28 @@ class WikiTableParser(object):
             if idx > self.end_id:
                 break
 
-            table_ids.append(idx)
             count += 1
             idx += 1
 
-        return table_ids, count
+        return count
 
-    def divide_table_ids(self, table_ids):
+    def divide_table_ids(self, counts):
         """
         This function is used to divide all tables to nums chunks.
         nums is equal to process nums.
-        :param table_ids:
+        :param counts:
         :return: table_chunks
         """
-        counts = len(table_ids)
         nums_per_chunk = counts // self.chunks_nums
         table_chunks = []
         for n in range(self.chunks_nums):
             if n == self.chunks_nums - 1:
                 s = n * nums_per_chunk
-                table_chunks.append(table_ids[s:])
+                table_chunks.append([s, count])
             else:
                 s = n * nums_per_chunk
                 e = (n + 1) * nums_per_chunk
-                table_chunks.append(table_ids[s:e])
+                table_chunks.append([s, e])
         return table_chunks
 
 
@@ -291,9 +291,12 @@ class WikiTableParser(object):
             line = jsonFile.readline()
             if not line:
                 break
-            i += 1
-            if i not in this_chunk:
+
+            if i < this_chunk[0] or i >= this_chunk[1]:
+                i += 1
                 continue
+
+            i += 1
 
             table_obj = ujson.loads(line)
             print(f"{chunks_idx} - {i}. Page " + table_obj["url"] + " - Index: " + str(table_obj["index"]))
@@ -371,8 +374,8 @@ if __name__ == "__main__":
     json_file = '../HTML_JA_WP_tables/table_ja_PubTabNet.jsonl'
 
     parser = WikiTableParser(jsonl_path=json_file, split=split, start_id=int(args.start_id), end_id=int(args.end_id), nproc=nproc)
-    table_ids, count = parser.get_table_ids()
-    table_chunks = parser.divide_table_ids(table_ids)
+    count = parser.get_number_tables()
+    table_chunks = parser.divide_table_ids(count)
     parser.parse_wiki_tables_mp(table_chunks)
 
 
