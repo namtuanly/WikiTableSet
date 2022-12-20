@@ -1,4 +1,4 @@
-# WikiTableGenetation
+# WikiTableSet
 ## First: 
 parse wiki jsonl file into table images and table json by wiki_table_parser.py.
 <br>
