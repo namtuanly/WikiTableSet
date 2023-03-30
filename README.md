@@ -5,6 +5,7 @@ WikiTableSet contains nearly 4 million English table images, 590K Japanese table
 We build a Wikipedia table extractor [WTabHTML](https://github.com/phucty/wtabhtml) and use this to extract tables (in HTML code format) from the 2022-03-01 dump of Wikipedia. In this study, we select Wikipedia tables from three representative languages, i.e., English, Japanese, and French; however, the dataset could be extended to around 300 languages with 17M tables using our table extractor. 
 Second, we normalize the HTML tables following the PubTabNet format (separating table headers and table data, removing CSS and style tags). Finally, we use Chrome and Selenium to render table images from table HTML codes. 
 This dataset provides a standard benchmark for studying table recognition algorithms in different languages or even multilingual table recognition algorithms.
+You can click [here](https://arxiv.org/pdf/2303.07641.pdf) for more details about this dataset.
 
 ## Getting data
 
