@@ -59,6 +59,21 @@ The structure of the annotation jsonl file is:
 }
 ```
 
+## HTMLTable2Image
+
+We also provide the HTMLTable2Image tool, which generates table images and their annotations of table structure, text content and its bounding box of each table cell from HTML representations of tables.
+
+* parse wiki jsonl file into table images and table json by wiki_table_parser_[language].py.
+```
+python3 wiki_table_parser_ja.py -s 1 -e 1000
+```
+* merge json file of each table into jsonl file.
+```
+python3 merge_json_files_ja.py
+```
+
+Note: User can download the HTML tables of other languages in [preprocessed dumps](https://drive.google.com/drive/folders/1wU5zdHcb3egxpwyluZCqVBIZnSanUwqN) to generate the table images in other languages.
+
 ## Cite us
 
 ```
@@ -73,14 +88,7 @@ The structure of the annotation jsonl file is:
 ```
 
 ## Contact
-Nam Ly (namly@nii.ac.jp)
-
-## First: 
-parse wiki jsonl file into table images and table json by wiki_table_parser.py.
-<br>
-python3 wiki_table_parser.py -s 1 -e 1000
-
-## Second: 
-merge json file of each table into jsonl file.
-<br>
-python3 merge_json_files.py
+Nam Ly (namly@nii.ac.jp)<br>
+Atsuhiro Takasu (takasu@nii.ac.jp)<br>
+Phuc Nguyen (phucnt@nii.ac.jp)<br>
+Hideaki Takeda (takeda@nii.ac.jp)<br>
