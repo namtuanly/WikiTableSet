@@ -9,7 +9,7 @@ You can click [here](https://arxiv.org/pdf/2303.07641.pdf) for more details abou
 
 ## Getting data
 
-* The Japanese part (WikiTableSet_JA) of the dataset can be downloaded in [OneDrive]().
+* The Japanese part (WikiTableSet_JA) of the dataset can be downloaded in [OneDrive](https://1drv.ms/u/s!AqdVALPNK4K1gP9RHpLoFCo04iAjFA?e=1Dl18c).
 * The 750K English table images (WikiTableSet-EN750K) from the English part of WikiTableSet in [OneDrive]().
 * The whole table images in the English part and the French part will be released soon.
 
@@ -39,6 +39,7 @@ Directory structure of the dataset is :
 
 ## Annotation structure
 
+The annotation of this dataset is the same as the annotation in [PubTabNet](https://github.com/ibm-aur-nlp/PubTabNet).
 The annotation is in the jsonl (jsonlines) format, where each line contains the annotations on a given sample in the following format:
 The structure of the annotation jsonl file is:
 
