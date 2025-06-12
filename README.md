@@ -9,8 +9,9 @@ You can click [here](https://arxiv.org/pdf/2303.07641.pdf) for more details abou
 
 ## Getting data
 
-* The Japanese part (WikiTableSet_JA) of the dataset can be downloaded in [OneDrive](https://1drv.ms/u/s!AqdVALPNK4K1gP9ddwR1RrNhNB5tsw?e=9oaWfY).
-* The 750K English table images (WikiTableSet-EN750K) from the English part of WikiTableSet in [OneDrive](https://1drv.ms/u/s!AqdVALPNK4K1gP9cg0ZOLovMU0-toA?e=ei2lG4).
+* The Japanese part (WikiTableSet_JA) of the dataset can be downloaded in https://gofile.me/7tW9x/KMco8Gr0B.
+* The 750K English table images (WikiTableSet-EN750K) from the English part of WikiTableSet in https://gofile.me/7tW9x/KNLcSWpZB.
+* Password: WikiTableSet
 * The whole table images in the English part and the French part will be released soon.
 
 Directory structure of the dataset is :
