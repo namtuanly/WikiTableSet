@@ -90,7 +90,7 @@ Note: User can download the HTML tables of other languages in [preprocessed dump
 ```
 
 ## Contact
-Nam Ly (namly@nii.ac.jp)<br>
+Nam Ly (namlytuan@gmail.com)<br>
 Atsuhiro Takasu (takasu@nii.ac.jp)<br>
 Phuc Nguyen (phucnt@nii.ac.jp)<br>
 Hideaki Takeda (takeda@nii.ac.jp)<br>
